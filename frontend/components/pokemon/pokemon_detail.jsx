@@ -1,4 +1,7 @@
 import React from 'react';
+import ItemDetailContainer from './item_detail_container';
+import { HashRouter, Route, Link } from 'react-router-dom';
+
 
 class PokemonDetail extends React.Component {
   constructor(props){
@@ -17,15 +20,36 @@ class PokemonDetail extends React.Component {
     }
   }
 
+
+
   render() {
     let { id, name, attack, defense, image_url, moves, poke_type, items } = this.props.pokemonDetail;
-    let attr = [id, attack, defense, moves, poke_type];
+    items = items || [];
+    moves = moves || [];
+    let attr = [id, attack, defense, poke_type];
+    if (this.props.loading_state) {
+      return (<div id="loading-pokeball-container">
+        <div id="loading-pokeball"></div>
+      </div>);
+    }
     return (
-      <ul>
-        HEREEEEE
+      <ul className="pokemon">
         <h1>{name}</h1>
         <img src={image_url} />
-        {attr.map((att,idx) => <li key={idx+"_"}>{att}</li>)}
+        <li>Pokemon#: {id}</li>
+        <li>Type: {poke_type}</li>
+        <li>Attack: {attack}</li>
+        <li>Defense: {defense}</li>
+        <li>Moves: {moves.map(word=> word[0].toUpperCase() + word.slice(1)).join(", ")}</li>
+        <div className="itemList">
+          {items.map((item, index )=> {
+            return (
+            <Link key={"itemlink" + index} to={`/pokemon/${item.pokemon_id}/items/${item.id}`}>
+              <img className='item' src={item.image_url} />
+            </Link>);
+          })}
+        </div>
+        <Route path="/pokemon/:pokemonId/items/:itemId" component={ ItemDetailContainer } />
       </ul>
     );
   }

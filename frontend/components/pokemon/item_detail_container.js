@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import { requestSinglePokemon } from '../../actions/pokemon_actions';
-import PokemonDetail from './pokemon_detail';
+import ItemDetail from './item_detail';
+import {selectPokemonItem} from '../../reducers/selectors';
 
-const mapStateToProps = state => ({
-  pokemonDetail: state.pokemonDetail,
-  loading_state: state.loading_state
+const mapStateToProps = (state, ownProps) => ({
+  ItemDetail: selectPokemonItem(state, ownProps.match.params.itemId)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PokemonDetail);
+)(ItemDetail);

@@ -25,7 +25,7 @@ body {
   color: $grey;
   font-size: 12px;
   height: 100%;
-  // background-image: url("https://images3.alphacoders.com/273/thumb-1920-273289.jpg")
+  // background-image: url("https://s-media-cache-ak0.pinimg.com/originals/e2/48/5e/e2485e81b790f3b465e5ad1715efa137.jpg")
 }
 
 header {
@@ -91,7 +91,6 @@ nav {
 
 #root {
   height: 100%;
-  padding-top: 20px;
 }
 
 h2 {
@@ -104,14 +103,73 @@ h3 {
   color: $black;
 }
 
-li.pokelists {
+section.pokedex{
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
+  align-items: flex-start;
+  height: 100%;
+}
+
+li.pokelistitem a {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  height: auto;
+}
+
+li.pokelistitem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  border: 1px solid black;
 }
 
 img.pokethumbs {
   display: inline-block;
+  height: 25px;
+  width: 25px;
+  margin-left: 10px;
+}
+
+div.itemList {
+  display: flex;
+  flex-direction: row;
+}
+
+img.item {
   height: 100px;
   width: 100px;
+}
+
+ul.pokelist {
+  border: 1px solid black;
+  padding-left: 0;
+  width: 150px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+ul.pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+ul.pokemon li {
+  padding: 5px 0 5px;
+  list-style: none;
+}
+
+form.pokeform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+form.pokeform label {
+  margin-bottom: 20px;
 }

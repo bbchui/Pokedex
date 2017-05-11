@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 const PokemonIndexItem = (props) => {
   let { pokemon } = props;
   return (
-    <li className="pokelists">
-      <h3>{pokemon.name}</h3>
-      <img className="pokethumbs" src={pokemon.image_url} />
+    <li className="pokelistitem">
       <Link to={`/pokemon/${pokemon.id}`}>
-        <div>click here</div>
+        <h5>{pokemon.name}</h5>
+        <img className="pokethumbs" src={pokemon.image_url} />
       </Link>
     </li>
   );
