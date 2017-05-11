@@ -6,12 +6,18 @@ export const RECEIVE_NEW_POKEMON = 'RECEIVE_NEW_POKEMON';
 export const RECEIVE_POKEMON_ERRORS = 'RECEIVE_POKEMON_ERRORS';
 export const START_LOADING_ALL_POKEMON = 'START_LOADING_ALL_POKEMON';
 export const STOP_LOADING = 'STOP_LOADING';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
 export const receivePokemonErrors = (errors) => ({
   type: RECEIVE_POKEMON_ERRORS,
   errors
 });
+
+export const clearErrors = (errors) => ({
+  type: CLEAR_ERRORS
+});
+
 
 export const receivePokemonDetail = (pokemonDetail) => ({
   type: RECEIVE_POKEMON,
@@ -47,10 +53,11 @@ export const requestAllPokemon = () => (dispatch) => {
 };
 
 export const requestSinglePokemon = (id) => (dispatch) => {
-  dispatch(startLoadingAllPokemon())
+  dispatch(startLoadingAllPokemon());
   return APIUtil.fetchPokemon(id)
     .then(pokemonDetail => {
       dispatch(receivePokemonDetail(pokemonDetail));
+      dispatch(clearErrors());
       dispatch(stopLoading());
   });
 };

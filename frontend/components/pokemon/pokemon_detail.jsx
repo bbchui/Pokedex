@@ -6,6 +6,8 @@ import { HashRouter, Route, Link } from 'react-router-dom';
 class PokemonDetail extends React.Component {
   constructor(props){
     super(props);
+    this.state = {selected_item: false};
+    this.handleSelect = this.handleSelect.bind(this)
   }
 
   componentDidMount(){
@@ -20,13 +22,16 @@ class PokemonDetail extends React.Component {
     }
   }
 
-
+  handleSelect(id) {
+    this.setState({selected_item: id})
+  }
 
   render() {
     let { id, name, attack, defense, image_url, moves, poke_type, items } = this.props.pokemonDetail;
     items = items || [];
     moves = moves || [];
     let attr = [id, attack, defense, poke_type];
+    let selectId = this.state.selected_item
     if (this.props.loading_state) {
       return (<div id="loading-pokeball-container">
         <div id="loading-pokeball"></div>
@@ -44,8 +49,8 @@ class PokemonDetail extends React.Component {
         <div className="itemList">
           {items.map((item, index )=> {
             return (
-            <Link key={"itemlink" + index} to={`/pokemon/${item.pokemon_id}/items/${item.id}`}>
-              <img className='item' src={item.image_url} />
+            <Link onClick={()=>this.handleSelect(item.id)} key={"itemlink" + index} to={`/pokemon/${item.pokemon_id}/items/${item.id}`}>
+              <img className={`item${selectId === item.id ? "_selected" : ""}`} src={item.image_url} />
             </Link>);
           })}
         </div>

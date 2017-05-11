@@ -10,8 +10,9 @@ class ItemDetail extends React.Component{
     let attr = [id, name, pokemon_id, price, happiness];
     return (
       <ul>
-        <img src={image_url} />
-        {attr.map((att,index) => <li key={"item_attr" + index}>{att}</li>)}
+        <li> Name: { name }</li>
+        <li> Price: { price }</li>
+        <li> Happiness: { happiness }</li>
       </ul>
     );
   }

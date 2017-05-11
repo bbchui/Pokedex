@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { createPokemon } from '../../actions/pokemon_actions';
+import { createPokemon, clearErrors } from '../../actions/pokemon_actions';
 import PokemonForm from './pokemon_form';
 
 const mapStateToProps = state => ({
