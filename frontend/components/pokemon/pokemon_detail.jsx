@@ -39,9 +39,9 @@ class PokemonDetail extends React.Component {
     }
     return (
       <ul className="pokemon">
-        <h1>{name}</h1>
+        <div className="pokemonName">{name}</div>
         <img src={image_url} />
-        <li>Pokemon#: {id}</li>
+        <li>Pokemon# {id}</li>
         <li>Type: {poke_type}</li>
         <li>Attack: {attack}</li>
         <li>Defense: {defense}</li>

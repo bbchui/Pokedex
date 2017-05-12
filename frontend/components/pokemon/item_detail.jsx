@@ -9,7 +9,7 @@ class ItemDetail extends React.Component{
     let {id, name, pokemon_id, price, happiness, image_url} = this.props.ItemDetail;
     let attr = [id, name, pokemon_id, price, happiness];
     return (
-      <ul>
+      <ul className="itemDetails">
         <li> Name: { name }</li>
         <li> Price: { price }</li>
         <li> Happiness: { happiness }</li>

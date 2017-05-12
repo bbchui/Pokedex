@@ -25,7 +25,9 @@ body {
   color: $grey;
   font-size: 12px;
   height: 100%;
-  background-image: url("http://verdewall.com/wp-content/uploads/2016/08/Pokemon-Wallpaper-24D.jpg")
+  background-image: url("http://verdewall.com/wp-content/uploads/2016/08/Pokemon-Wallpaper-24D.jpg");
+  background-size: cover;
+  // background-position: center center;
 }
 
 header {
@@ -33,10 +35,15 @@ header {
   justify-content: center;
   background-color: $red;
 
+
   img {
     width: 43px;
     height: 43px;
   }
+}
+
+.button {
+  width: auto;
 }
 
 nav {
@@ -114,14 +121,15 @@ li.pokelistitem a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: auto;
+  justify-content: space-around;
+  width: 100%;
 }
 
 li.pokelistitem {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: auto;
+  font-size: 16px;
   border: 1px solid #d43316;
 }
 
@@ -129,12 +137,17 @@ img.pokethumbs {
   display: inline-block;
   height: 25px;
   width: 25px;
-  margin-left: 10px;
 }
 
 div.itemList {
   display: flex;
   flex-direction: row;
+}
+
+ul.itemDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 img.item {
@@ -155,7 +168,7 @@ img.item_selected {
 ul.pokelist {
   border: 1px solid #d43316;
   padding-left: 0;
-  width: 150px;
+  width: 20%;
   height: 100%;
   overflow-y: scroll;
 }
@@ -167,20 +180,23 @@ ul.pokemon {
   width: 80%;
   border: 10px solid #d43316;
   border-radius: 25px;
-  margin-top: 50px;
-  margin-left: 50px;
-  padding-bottom: 50px;
+  margin: 50px;
+  height: 80%;
 }
 
 ul.pokemon > img {
   border: 10px solid #d43316;
   border-radius: 25px;
-  background: white;
+  padding: 5px;
+  height: 40%;
+  width: 30%;
+  background-image: url("http://orig08.deviantart.net/50bb/f/2014/298/2/1/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png")
 }
 
 ul.pokemon li {
-  padding: 5px 0 5px;
   list-style: none;
+  margin: 3px;
+  font-size: 18px;
 }
 
 form.pokeform {
@@ -195,8 +211,13 @@ form.pokeform label {
   margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 50px;
-  font-smooth: never;
-  font-family: 'pokemon-font', monospace;
+.pokemonName {
+  font-family: Impact;
+	font-size: 49px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 49px;
+  padding-bottom: 10px;
+  font-color: black;
 }
